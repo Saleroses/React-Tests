@@ -1,22 +1,12 @@
 import React, {ChangeEvent, MouseEvent} from 'react';
 
 export const CallBack = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
-
-
-export const User = () => {
-
     const deleteUser = (event: MouseEvent<HTMLButtonElement>) => {
-       // alert('User have been deleted')
+        alert('User have been deleted')
     }
 
     const nameChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        console.log("Name change")
+        alert("Name change")
     }
 
 
@@ -26,3 +16,5 @@ export const User = () => {
         </div>
     )
 }
+
+
