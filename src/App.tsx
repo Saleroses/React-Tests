@@ -4,6 +4,7 @@ import './App.css';
 import Switcher from "./Components/Switcher/Switcher";
 import Destructuring from "./Components/Destructuring/Destructuring";
 import {UseState} from "./Components/UseState/useState";
+import CoolCounter from "./Components/Counter/Counter";
 
 function App() {
     return (
@@ -12,7 +13,8 @@ function App() {
             {/*<UseState />*/}
             {/*/!*<Input/>*!/*/}
             {/*/!*<User/>*!/*/}
-            <CallBack/>
+            {/*<CallBack/>*/}
+            <CoolCounter/>
         </div>
     );
 }
