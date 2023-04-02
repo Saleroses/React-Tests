@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
+import s from "./Counter.module.css"
 
 const CoolCounter = () => {
 
@@ -12,6 +15,7 @@ const CoolCounter = () => {
         } if (counter === 4) {
             setDisableInc(true)
             setCounter(counter + 1)
+            setError(true)
         }
 
     }
@@ -20,18 +24,20 @@ const CoolCounter = () => {
             setDisableReset(true)
             setCounter(counter = 0)
             setDisableInc(false)
+            setError(false)
     }
 
     let [counter, setCounter] = useState(0)
     let [disableInc, setDisableInc] = useState(false);
     let [disableReset, setDisableReset] = useState(true);
+    let [error, setError] = useState(false)
 
 
     return (
-        <div>
-            <div>{counter}</div>
-            <button onClick={buttonIncHandler} disabled={disableInc}>INC</button>
-            <button onClick={resetButtonHandler} disabled={disableReset}>RESET</button>
+        <div className={s.counter}>
+            <div className={error ? s.error : s.normal}>{counter}</div>
+            <button className={s.myButton} onClick={buttonIncHandler} disabled={disableInc}>INC</button>
+            <button className={s.myButtonRes} onClick={resetButtonHandler} disabled={disableReset}>RESET</button>
         </div>
     );
 };
