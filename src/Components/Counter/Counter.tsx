@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 import s from "./Counter.module.css"
 
 const CoolCounter = () => {
