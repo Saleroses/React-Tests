@@ -5,18 +5,33 @@ import Off from "./Off/Off";
 
 type SwitcherType = {
     active: boolean
+    onChange: (active: boolean) => void
 }
 
-const Switcher = () => {
+export const Switcher = (props: SwitcherType) => {
 
-    let [on, setOn] = useState(false);
+    const onStyle = {
+        width: "30px",
+        height: "20px",
+        border: "2px solid black",
+        display: "inline-block",
+        padding: "2px",
+        backgroundColor: props.active ? "green" : "white"
+    }
 
-        if (on === true) {
-            return <div onClick={() => {setOn(false)}}><On /></div>
-        } else {
-            return <div onClick={() => {setOn(true)}}><Off /></div>
-        }
+    const offStyle = {
+        width: "30px",
+        height: "20px",
+        border: "2px solid black",
+        display: "inline-block",
+        padding: "2px",
+        backgroundColor: props.active ? "white" : "red"
+    }
 
+        return  (
+            <div>
+                <div style={onStyle} onClick={ () => {props.onChange(true)} }> ON </div>
+                <div style={offStyle} onClick={ () => {props.onChange(false)} }> OFF </div>
+            </div>
+        )
 };
-
-export default Switcher;

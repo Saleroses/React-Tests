@@ -6,17 +6,17 @@ type FullInputPropsType = {
 }
 
 export function FullInput(props: FullInputPropsType) {
-    let [title, setTitile] = useState("")
+    let [title, setTitle] = useState("")
 
 
     const onChangeInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {
-        setTitile(event.currentTarget.value)
+        setTitle(event.currentTarget.value)
 
     }
 
     const onClickButtonHandler = () => {
         props.addMessage(title)
-        setTitile("")
+        setTitle("")
     }
 
     return (
