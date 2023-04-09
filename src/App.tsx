@@ -6,6 +6,7 @@ import Destructuring from "./Components/Destructuring/Destructuring";
 import {UseState} from "./Components/UseState/useState";
 import CoolCounter from "./Components/Counter/Counter";
 import {Rating} from "./Components/Stars/Stars";
+import Assoc from "./Components/Associative/Assoc";
 
 
 
@@ -14,13 +15,14 @@ function App() {
     let [switchOn, setSwitchOn] = useState(true);
     return (
         <div className="App">
-            <Switcher active={switchOn} onChange={setSwitchOn}/>
+            {/*<Switcher active={switchOn} onChange={setSwitchOn}/>*/}
             {/*<UseState />*/}
             {/*/!*<Input/>*!/*/}
             {/*/!*<User/>*!/*/}
             {/*<CallBack/>*/}
             {/*<CoolCounter/>*/}
-            <Rating/>
+            {/*<Rating/>*/}
+            <Assoc/>
         </div>
     );
 }
