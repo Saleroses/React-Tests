@@ -7,6 +7,7 @@ import {UseState} from "./Components/UseState/useState";
 import CoolCounter from "./Components/Counter/Counter";
 import {Rating} from "./Components/Stars/Stars";
 import Assoc from "./Components/Associative/Assoc";
+import {ContrCheckBox, ContrInput, Select} from "./Components/ControlledInput/ContrInput";
 
 
 
@@ -22,7 +23,9 @@ function App() {
             {/*<CallBack/>*/}
             {/*<CoolCounter/>*/}
             {/*<Rating/>*/}
-            <Assoc/>
+            <ContrInput/>
+            <ContrCheckBox/>
+            <Select/>
         </div>
     );
 }
