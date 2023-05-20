@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {Spisok, Title} from "./Title";
 
-type UseStateType = {
+type UseReduceType = {
     on: boolean
 }
 
-export const UseState = () => {
+export const UseReduce = () => {
     let [on, setOn] = useState(false);
 
             if (on === true) {

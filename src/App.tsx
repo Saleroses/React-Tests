@@ -3,11 +3,13 @@ import {CallBack} from "./Components/CallBack/CallBack";
 import './App.css';
 import {Switcher} from "./Components/Switcher/Switcher";
 import Destructuring from "./Components/Destructuring/Destructuring";
-import {UseState} from "./Components/UseState/useState";
 import CoolCounter from "./Components/Counter/Counter";
 import {Rating} from "./Components/Stars/Stars";
 import Assoc from "./Components/Associative/Assoc";
 import {ContrCheckBox, ContrInput, Select} from "./Components/ControlledInput/ContrInput";
+import Immutability from "./Components/immutability/immutability";
+import {UseReduce} from "./Components/UseReducer/useReduce";
+
 
 
 
@@ -18,14 +20,17 @@ function App() {
         <div className="App">
             {/*<Switcher active={switchOn} onChange={setSwitchOn}/>*/}
             {/*<UseState />*/}
+            <UseReduce />
             {/*/!*<Input/>*!/*/}
             {/*/!*<User/>*!/*/}
             {/*<CallBack/>*/}
             {/*<CoolCounter/>*/}
             {/*<Rating/>*/}
-            <ContrInput/>
-            <ContrCheckBox/>
-            <Select/>
+            {/*<ContrInput/>*/}
+            {/*<ContrCheckBox/>*/}
+            {/*<Select/>*/}
+            {/*<Immutability/>*/}
+
         </div>
     );
 }
