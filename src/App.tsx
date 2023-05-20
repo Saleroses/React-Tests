@@ -9,6 +9,7 @@ import Assoc from "./Components/Associative/Assoc";
 import {ContrCheckBox, ContrInput, Select} from "./Components/ControlledInput/ContrInput";
 import Immutability from "./Components/immutability/immutability";
 import {UseReduce} from "./Components/UseReducer/useReduce";
+import {Example} from "./Components/MEMO/memo";
 
 
 
@@ -20,7 +21,7 @@ function App() {
         <div className="App">
             {/*<Switcher active={switchOn} onChange={setSwitchOn}/>*/}
             {/*<UseState />*/}
-            <UseReduce />
+            {/*<UseReduce />*/}
             {/*/!*<Input/>*!/*/}
             {/*/!*<User/>*!/*/}
             {/*<CallBack/>*/}
@@ -30,6 +31,7 @@ function App() {
             {/*<ContrCheckBox/>*/}
             {/*<Select/>*/}
             {/*<Immutability/>*/}
+            <Example/>
 
         </div>
     );
