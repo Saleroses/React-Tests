@@ -9,7 +9,7 @@ import Assoc from "./Components/Associative/Assoc";
 import {ContrCheckBox, ContrInput, Select} from "./Components/ControlledInput/ContrInput";
 import Immutability from "./Components/immutability/immutability";
 import {UseReduce} from "./Components/UseReducer/useReduce";
-import {Example} from "./Components/MEMO/memo";
+import {Example, Example1, HelpToReactMemo} from "./Components/MEMO/memo";
 
 
 
@@ -31,7 +31,7 @@ function App() {
             {/*<ContrCheckBox/>*/}
             {/*<Select/>*/}
             {/*<Immutability/>*/}
-            <Example/>
+            <HelpToReactMemo/>
 
         </div>
     );
