@@ -10,6 +10,7 @@ import {ContrCheckBox, ContrInput, Select} from "./Components/ControlledInput/Co
 import Immutability from "./Components/immutability/immutability";
 import {UseReduce} from "./Components/UseReducer/useReduce";
 import {Example, Example1, HelpToReactMemo} from "./Components/MEMO/memo";
+import {getBanknoteList} from "./Components/Tests/lesson_8";
 
 
 

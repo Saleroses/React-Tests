@@ -2,6 +2,7 @@ import React, {useMemo, useState} from 'react';
 import {Button} from "../Input/Button";
 import {match} from "assert";
 import {formatDate} from "@storybook/blocks";
+import {getBanknoteList} from "../Tests/lesson_8";
 
 export default {
     title: "React memo Demo"
