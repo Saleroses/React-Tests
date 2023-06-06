@@ -43,15 +43,12 @@ const CoolCounter = () => {
 
 
         const onChangeMinInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {
-            setErrorEnter(false)
             setMinValue(+event.currentTarget.value)
-            return +event.currentTarget.value
+
         }
 
         const onChangeMaxInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {
-            setErrorEnter(false)
             setMaxValue(+event.currentTarget.value)
-           return +event.currentTarget.value
 
         }
 
@@ -63,6 +60,7 @@ const CoolCounter = () => {
                 setDisableReset(true)
                 setDisableInc(false)
                 setError(false)
+                setErrorEnter(false)
             } else {
                 setErrorEnter(true)
             }
@@ -70,9 +68,15 @@ const CoolCounter = () => {
 
         return (
             <div>
-                <input type={"number"} className={s.input} onChange={onChangeMinInputHandler} placeholder={"Start count"} />
-                <input type={"number"} className={s.input} onChange={onChangeMaxInputHandler} placeholder={"End count"}/>
-                <button className={s.myButton} onClick={onClickCountHandler}>{errorEnter ? "Incorrect" : "SetValue"}</button>
+                <input type={"number"}
+                       className={s.input}
+                       onChange={onChangeMinInputHandler}
+                       placeholder={"Start"}/>
+                <input type={"number"}
+                       className={s.input}
+                       onChange={onChangeMaxInputHandler}
+                       placeholder={"End"}/>
+                <button className={s.myButton} onClick={onClickCountHandler}>SetValue</button>
 
             </div>
         );
@@ -85,7 +89,7 @@ const CoolCounter = () => {
                 <Settings />
             </div>
             <div className={s.counter}>
-                <div className={error ? s.error : s.normal}>{startCounter}</div>
+                <div className={error ? s.error : s.normal}>{errorEnter ? "Incorrect" : startCounter}</div>
                 <div className={s.buttons}>
                     <button className={s.myButton} onClick={buttonIncHandler} disabled={disableInc}>INC</button>
                     <button className={s.myButtonRes} onClick={resetButtonHandler} disabled={disableReset}>RESET
