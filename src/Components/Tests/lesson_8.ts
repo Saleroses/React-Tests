@@ -119,7 +119,7 @@ export function getBanknoteList(amountOfMoney: number): Array<number> {
     let i = 0
     while (amountOfMoney > 0) {
         if (amountOfMoney >= banknotes[i]) {
-            amountOfMoney -= banknotes[i]
+            amountOfMoney = amountOfMoney - banknotes[i]
             result.push(banknotes[i])
         } else {
             i++

@@ -11,6 +11,8 @@ import Immutability from "./Components/immutability/immutability";
 import {UseReduce} from "./Components/UseReducer/useReduce";
 import {Example, Example1, HelpToReactMemo} from "./Components/MEMO/memo";
 import {getBanknoteList} from "./Components/Tests/lesson_8";
+import Counter from "./Components/Counter/Counter";
+
 
 
 
@@ -20,6 +22,7 @@ function App() {
     let [switchOn, setSwitchOn] = useState(true);
     return (
         <div className="App">
+            <Counter/>
             {/*<Switcher active={switchOn} onChange={setSwitchOn}/>*/}
             {/*<UseState />*/}
             {/*<UseReduce />*/}
@@ -32,8 +35,7 @@ function App() {
             {/*<ContrCheckBox/>*/}
             {/*<Select/>*/}
             {/*<Immutability/>*/}
-            <HelpToReactMemo/>
-
+            {/*<HelpToReactMemo/>*/}
         </div>
     );
 }
