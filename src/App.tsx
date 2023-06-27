@@ -10,8 +10,10 @@ import {ContrCheckBox, ContrInput, Select} from "./Components/ControlledInput/Co
 import Immutability from "./Components/immutability/immutability";
 import {UseReduce} from "./Components/UseReducer/useReduce";
 import {Example, Example1, HelpToReactMemo} from "./Components/MEMO/memo";
-import {getBanknoteList} from "./Components/Tests/lesson_8";
 import Counter from "./Components/Counter/Counter";
+import Exam from "./Components/EXAM/exam";
+import {Exemple11} from "./Components/UseState/useState";
+import {UseEffect2, Watch} from "./useEffect/useEffect";
 
 
 
@@ -19,10 +21,10 @@ import Counter from "./Components/Counter/Counter";
 
 
 function App() {
-    let [switchOn, setSwitchOn] = useState(true);
     return (
         <div className="App">
-            <Counter/>
+            {/*<Exam/>*/}
+            {/*<Counter/>*/}
             {/*<Switcher active={switchOn} onChange={setSwitchOn}/>*/}
             {/*<UseState />*/}
             {/*<UseReduce />*/}
@@ -36,11 +38,11 @@ function App() {
             {/*<Select/>*/}
             {/*<Immutability/>*/}
             {/*<HelpToReactMemo/>*/}
+            {/*<Exemple11 />*/}
+            {/*<UseEffect2 />*/}
+            <Watch />
         </div>
     );
 }
 
 export default App;
-
-
-

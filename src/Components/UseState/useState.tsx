@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {Spisok, Title} from "./Title";
 
 type UseReduceType = {
@@ -18,3 +18,19 @@ export const UseReduce = () => {
 
 };
 
+function generationData() {
+    return 6546+5456
+}
+
+export const Exemple11 = () => {
+    // const initValue = useMemo(generationData, [])
+    const [counter, setCounter] = useState(generationData)
+
+
+    return (
+        <div>
+        <button onClick={ ()=> {setCounter(counter+1)}}>+1</button>
+    {counter}
+        </div>
+    )
+};

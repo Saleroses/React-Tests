@@ -1,6 +1,8 @@
 // 1. Функция sum принимает параметром целые положительные
 // числа (неопределённое кол-во) и возвращает их сумму (rest).
 
+import {number} from "prop-types";
+
 export function sum(...nums: Array<number>): number {
     // console.log(nums)
    return  nums.reduce((acc, el) => acc+el)
@@ -129,3 +131,14 @@ export function getBanknoteList(amountOfMoney: number): Array<number> {
 
 
 }
+
+
+let principal = 1000;
+let interest = 0.05;
+let tax = 0.18;
+let desired = 1100
+
+
+
+
+
