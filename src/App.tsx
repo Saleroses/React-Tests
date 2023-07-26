@@ -11,7 +11,7 @@ import Immutability from "./Components/immutability/immutability";
 import {UseReduce} from "./Components/UseReducer/useReduce";
 import {Example, Example1, HelpToReactMemo} from "./Components/MEMO/memo";
 import Counter from "./Components/Counter/Counter";
-import Exam from "./Components/EXAM/exam";
+import {Exam} from "./Components/EXAM/exam";
 import {Exemple11} from "./Components/UseState/useState";
 import {UseEffect2, Watch} from "./useEffect/useEffect";
 
@@ -23,7 +23,7 @@ import {UseEffect2, Watch} from "./useEffect/useEffect";
 function App() {
     return (
         <div className="App">
-            {/*<Exam/>*/}
+            {/*<Exam />*/}
             {/*<Counter/>*/}
             {/*<Switcher active={switchOn} onChange={setSwitchOn}/>*/}
             {/*<UseState />*/}
@@ -40,7 +40,7 @@ function App() {
             {/*<HelpToReactMemo/>*/}
             {/*<Exemple11 />*/}
             {/*<UseEffect2 />*/}
-            <Watch />
+            {/*<Watch />*/}
         </div>
     );
 }

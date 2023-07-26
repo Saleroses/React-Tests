@@ -1,17 +1,42 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import s from "./Counter.module.css"
 
 
 
 const CoolCounter = () => {
-
-    let [startCounter, setStartCounter] = useState(0)
+    let [startCounter, setStartCounter] = useState<number>(() => {
+        let localValueAsString = localStorage.getItem('counterValue')
+        if (localValueAsString) {
+            let Value = JSON.parse(localValueAsString)
+            return Value
+        } else {
+            return 0
+        }
+    })
     let [newStartCounter, setNewStartCounter] = useState(0)
     let [maxCount, setMaxCount] = useState(5)
     let [disableInc, setDisableInc] = useState(false);
     let [disableReset, setDisableReset] = useState(true);
     let [error, setError] = useState(false)
     let [errorEnter, setErrorEnter] = useState(false)
+
+
+    useEffect( ()=> {
+        localStorage.setItem('counterValue', JSON.stringify(startCounter))
+    }, [startCounter])
+
+
+    useEffect( ()=> {
+        let valueAsString = localStorage.getItem('counterValue')
+        if (valueAsString) {
+            let newStartValue = JSON.parse(valueAsString)
+            setStartCounter(newStartValue)
+        }
+    }, [])
+
+
+
+
 
 
 
@@ -44,12 +69,10 @@ const CoolCounter = () => {
 
         const onChangeMinInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {
             setMinValue(+event.currentTarget.value)
-
         }
 
         const onChangeMaxInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {
             setMaxValue(+event.currentTarget.value)
-
         }
 
         const onClickCountHandler = () => {

@@ -39,10 +39,8 @@ export const Watch = () => {
     let [minutes, setMinutes] = useState(new Date().getMinutes())
     let [seconds, setSeconds] = useState(new Date().getSeconds())
 
-    console.log(seconds)
-
-    useEffect( ()=> {
-        setInterval( ()=> {
+    useEffect( ()=> { //перерисовка, зависит от депс
+        setInterval( ()=> { // что нужно обновить и интервал перерисовки
             setSeconds(seconds = new Date().getSeconds())
             setMinutes (minutes = new Date().getMinutes())
             setHours (hours = new Date().getHours())
