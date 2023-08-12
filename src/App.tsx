@@ -40,7 +40,7 @@ function App() {
             {/*<HelpToReactMemo/>*/}
             {/*<Exemple11 />*/}
             {/*<UseEffect2 />*/}
-            {/*<Watch />*/}
+            <Watch />
         </div>
     );
 }

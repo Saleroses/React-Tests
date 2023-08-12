@@ -4,35 +4,19 @@ import s from "./Counter.module.css"
 
 
 const CoolCounter = () => {
-    let [startCounter, setStartCounter] = useState<number>(() => {
-        let localValueAsString = localStorage.getItem('counterValue')
-        if (localValueAsString) {
-            let Value = JSON.parse(localValueAsString)
-            return Value
-        } else {
-            return 0
-        }
+    let [startCounter, setStartCounter] = useState<number>(()=>{
+        let startLocal = localStorage.getItem("minValue")
+        return startLocal ? JSON.parse(startLocal) : 0
     })
     let [newStartCounter, setNewStartCounter] = useState(0)
-    let [maxCount, setMaxCount] = useState(5)
+    let [maxCount, setMaxCount] = useState(()=>{
+        let stopLocal = localStorage.getItem("maxValue")
+        return stopLocal ? JSON.parse(stopLocal) : 5
+    })
     let [disableInc, setDisableInc] = useState(false);
     let [disableReset, setDisableReset] = useState(true);
     let [error, setError] = useState(false)
     let [errorEnter, setErrorEnter] = useState(false)
-
-
-    useEffect( ()=> {
-        localStorage.setItem('counterValue', JSON.stringify(startCounter))
-    }, [startCounter])
-
-
-    useEffect( ()=> {
-        let valueAsString = localStorage.getItem('counterValue')
-        if (valueAsString) {
-            let newStartValue = JSON.parse(valueAsString)
-            setStartCounter(newStartValue)
-        }
-    }, [])
 
 
 
@@ -56,15 +40,40 @@ const CoolCounter = () => {
 
     const resetButtonHandler = () => {
         setDisableReset(true)
-        setStartCounter(newStartCounter)
+        setStartCounter((()=>{
+            let startLocal = localStorage.getItem("minValue")
+            return startLocal ? JSON.parse(startLocal) : maxCount
+        }))
         setDisableInc(false)
         setError(false)
     }
 
 
     const Settings = () => {
-        let [minValue, setMinValue] = useState<number>(startCounter)
-        let [maxValue, setMaxValue] = useState<number>(maxCount)
+        let [minValue, setMinValue] = useState<number>(()=>{
+            let minLocal = localStorage.getItem("minValue")
+            if (minLocal) {
+                return JSON.parse(minLocal)
+            } else {
+                return startCounter}
+        })
+        let [maxValue, setMaxValue] = useState<number>(()=>{
+            let maxLocal = localStorage.getItem("maxValue")
+            if (maxLocal) {
+                return JSON.parse(maxLocal)
+            } else {
+                return maxCount}
+        })
+
+
+
+        useEffect(()=> {
+            localStorage.setItem("minValue", JSON.stringify(minValue))
+        }, [minValue])
+
+        useEffect(()=> {
+            localStorage.setItem("maxValue", JSON.stringify(maxValue))
+        }, [maxValue])
 
 
         const onChangeMinInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {

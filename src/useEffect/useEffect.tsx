@@ -35,20 +35,24 @@ export const UseEffect2 = () => {
 
 export const Watch = () => {
 
-    let [hours, setHours] = useState(new Date().getHours())
-    let [minutes, setMinutes] = useState(new Date().getMinutes())
-    let [seconds, setSeconds] = useState(new Date().getSeconds())
+    const [date, setDate] = useState(new Date())
+
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
+
+    const zeroFunction = (num: number) => {
+      return num < 10 ? "0" + num : num
+    }
 
     useEffect( ()=> { //перерисовка, зависит от депс
-        setInterval( ()=> { // что нужно обновить и интервал перерисовки
-            setSeconds(seconds = new Date().getSeconds())
-            setMinutes (minutes = new Date().getMinutes())
-            setHours (hours = new Date().getHours())
-        }, 200)
-    }, [seconds])
+        setInterval( ()=> {// что нужно обновить и интервал перерисовки
+           setDate(new Date())
+        }, 1000)
+    }, [])
 
     return (
-        <div>{hours}:{minutes}:{seconds}</div>
+        <div>{zeroFunction(hours)}:{zeroFunction(minutes)}:{zeroFunction(seconds)}</div>
     )
 
 }
