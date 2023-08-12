@@ -46,9 +46,14 @@ export const Watch = () => {
     }
 
     useEffect( ()=> { //перерисовка, зависит от депс
-        setInterval( ()=> {// что нужно обновить и интервал перерисовки
+        const intervalId = setInterval( ()=> {// что нужно обновить и интервал перерисовки
            setDate(new Date())
+            console.log("tick")
         }, 1000)
+
+        return () => {clearInterval(intervalId) // убивает тиканье вместе с компонентой
+        }
+
     }, [])
 
     return (
