@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {log} from "util";
 
 // const UseEffect = () => {
 //     const [counter, setCounter] = useState(1)
@@ -48,16 +49,16 @@ export const Watch = () => {
     useEffect( ()=> { //перерисовка, зависит от депс
         const intervalId = setInterval( ()=> {// что нужно обновить и интервал перерисовки
            setDate(new Date())
-            console.log("tick")
         }, 1000)
 
         return () => {clearInterval(intervalId) // убивает тиканье вместе с компонентой
         }
-
     }, [])
 
     return (
-        <div>{zeroFunction(hours)}:{zeroFunction(minutes)}:{zeroFunction(seconds)}</div>
+        <div>{zeroFunction(hours)}:{zeroFunction(minutes)}:{zeroFunction(seconds)}
+        </div>
+
     )
 
 }
