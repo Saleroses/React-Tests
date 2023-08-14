@@ -20,12 +20,14 @@
 
 
 export const reducer = (state: any, action: any) => {
-    // debugger
     switch (action.type) {
         case 'TRACK-ADDED':
-            return {
-
+            const newTrack = {
+                id: action.trackId,
+                likesCount: 0,
             }
+            return  [...state, newTrack]
+
         default:
             return state
     }
@@ -41,7 +43,7 @@ const state = [
 ]
 const newState = reducer(state, addTrackAC(300))
 
-console.log(newState[3].likesCount === 0)
-console.log(newState)
+console.log(newState[3].likesCount)
+console.log(newState[3].id)
 // Что нужно написать вместо XXX, чтобы трек корректно добавился и в консоли увидеть true?
 

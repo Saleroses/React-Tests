@@ -11,7 +11,6 @@ import Immutability from "./Components/immutability/immutability";
 import {UseReduce} from "./Components/UseReducer/useReduce";
 import {Example, Example1, HelpToReactMemo} from "./Components/MEMO/memo";
 import Counter from "./Components/Counter/Counter";
-import {Exam} from "./Components/EXAM/exam";
 import {Exemple11} from "./Components/UseState/useState";
 import {UseEffect2, Watch} from "./useEffect/useEffect";
 
