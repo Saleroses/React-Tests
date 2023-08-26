@@ -8,51 +8,48 @@ import {store} from "./store";
 
 const CoolCounter = () => {
     const dispatch = useDispatch()
-
     const increment = () => {
         const action = incrementAC()
         dispatch(action)
-        console.log("inc")
-        console.log(store.getState().count)
     }
-
     const reset = (count: number) => {
         const action = resetAC(count)
         dispatch(action)
-        console.log("reset")
-        console.log(store.getState().startCount)
     }
-
     const startCount = (startCount: number) => {
         const action = startCountAC(startCount)
         dispatch(action)
-        console.log("startCount")
-        console.log(store.getState().startCount)
     }
-
     const endCount = (endCount: number) => {
         const action = endCountAC(endCount)
         dispatch(action)
-        console.log("endCount")
-        console.log(store.getState().endCount)
     }
 
 
-
+    let minValue: number = store.getState().startCount
+    let maxValue: number = store.getState().endCount
     let [disableReset, setDisableReset] = useState(true)
     let [disableInc, setDisableInc] = useState(false)
     let [error, setError] = useState(false)
     let [errorEnter, setErrorEnter] = useState(false)
     let [count, setCount] = useState(store.getState().count)
-    let [minValue, setMinValue] = useState(store.getState().startCount)
-    let [maxValue, setMaxValue] = useState(store.getState().endCount)
+
+
 
 
     const buttonIncHandler = () => {
-        setErrorEnter(false)
-        setDisableReset(false)
-        increment()
-        setCount(store.getState().count)
+        if (count === maxValue-1) {
+            increment()
+            setCount(store.getState().count)
+            setError(true)
+            setDisableInc(true)
+        } else {
+            setErrorEnter(false)
+            setDisableReset(false)
+            increment()
+            setCount(store.getState().count)
+        }
+
     }
 
     const resetButtonHandler = () => {
@@ -66,10 +63,8 @@ const CoolCounter = () => {
 
     const Settings = () => {
 
-
         const onChangeMinInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {
             minValue = +event.currentTarget.value
-
         }
 
         const onChangeMaxInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {
@@ -93,12 +88,10 @@ const CoolCounter = () => {
 
         return (
             <div>
-                <input type={"number"}
-                       className={s.input}
+                <input className={s.input}
                        onChange={onChangeMinInputHandler}
                        placeholder={"Start"}/>
-                <input type={"number"}
-                       className={s.input}
+                <input className={s.input}
                        onChange={onChangeMaxInputHandler}
                        placeholder={"End"}/>
                 <button className={s.myButton} onClick={onClickCountHandler}>SetValue</button>
