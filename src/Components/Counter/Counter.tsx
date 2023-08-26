@@ -1,94 +1,87 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import s from "./Counter.module.css"
+import {useDispatch} from "react-redux";
+import {endCountAC, incrementAC, resetAC, startCountAC} from "./counterReducer";
+import {store} from "./store";
 
 
 
 const CoolCounter = () => {
-    let [startCounter, setStartCounter] = useState<number>(()=>{
-        let startLocal = localStorage.getItem("minValue")
-        return startLocal ? JSON.parse(startLocal) : 0
-    })
-    let [newStartCounter, setNewStartCounter] = useState(0)
-    let [maxCount, setMaxCount] = useState(()=>{
-        let stopLocal = localStorage.getItem("maxValue")
-        return stopLocal ? JSON.parse(stopLocal) : 5
-    })
-    let [disableInc, setDisableInc] = useState(false);
-    let [disableReset, setDisableReset] = useState(true);
+    const dispatch = useDispatch()
+
+    const increment = () => {
+        const action = incrementAC()
+        dispatch(action)
+        console.log("inc")
+        console.log(store.getState().count)
+    }
+
+    const reset = (count: number) => {
+        const action = resetAC(count)
+        dispatch(action)
+        console.log("reset")
+        console.log(store.getState().startCount)
+    }
+
+    const startCount = (startCount: number) => {
+        const action = startCountAC(startCount)
+        dispatch(action)
+        console.log("startCount")
+        console.log(store.getState().startCount)
+    }
+
+    const endCount = (endCount: number) => {
+        const action = endCountAC(endCount)
+        dispatch(action)
+        console.log("endCount")
+        console.log(store.getState().endCount)
+    }
+
+
+
+    let [disableReset, setDisableReset] = useState(true)
+    let [disableInc, setDisableInc] = useState(false)
     let [error, setError] = useState(false)
     let [errorEnter, setErrorEnter] = useState(false)
-
-
-
-
-
-
+    let [count, setCount] = useState(store.getState().count)
+    let [minValue, setMinValue] = useState(store.getState().startCount)
+    let [maxValue, setMaxValue] = useState(store.getState().endCount)
 
 
     const buttonIncHandler = () => {
-        if (startCounter < maxCount) {
-            setDisableReset(false)
-            setStartCounter(startCounter + 1)
-        }
-        if (startCounter === maxCount-1) {
-            setDisableInc(true)
-            setStartCounter(startCounter + 1)
-            setError(true)
-        }
-
+        setErrorEnter(false)
+        setDisableReset(false)
+        increment()
+        setCount(store.getState().count)
     }
 
     const resetButtonHandler = () => {
         setDisableReset(true)
-        setStartCounter((()=>{
-            let startLocal = localStorage.getItem("minValue")
-            return startLocal ? JSON.parse(startLocal) : maxCount
-        }))
+        reset(minValue)
+        setCount(minValue)
         setDisableInc(false)
         setError(false)
     }
 
 
     const Settings = () => {
-        let [minValue, setMinValue] = useState<number>(()=>{
-            let minLocal = localStorage.getItem("minValue")
-            if (minLocal) {
-                return JSON.parse(minLocal)
-            } else {
-                return startCounter}
-        })
-        let [maxValue, setMaxValue] = useState<number>(()=>{
-            let maxLocal = localStorage.getItem("maxValue")
-            if (maxLocal) {
-                return JSON.parse(maxLocal)
-            } else {
-                return maxCount}
-        })
-
-
-
-        useEffect(()=> {
-            localStorage.setItem("minValue", JSON.stringify(minValue))
-        }, [minValue])
-
-        useEffect(()=> {
-            localStorage.setItem("maxValue", JSON.stringify(maxValue))
-        }, [maxValue])
 
 
         const onChangeMinInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {
-            setMinValue(+event.currentTarget.value)
+            minValue = +event.currentTarget.value
+
         }
 
         const onChangeMaxInputHandler = (event: ChangeEvent<HTMLInputElement>)=> {
-            setMaxValue(+event.currentTarget.value)
+            maxValue = +event.currentTarget.value
         }
 
         const onClickCountHandler = () => {
             if (minValue < maxValue) {
-                setStartCounter(minValue)
-                setNewStartCounter(minValue)
-                setMaxCount(maxValue)
+                startCount(minValue)
+                endCount(maxValue)
+                setCount(minValue)
+                store.getState().count = minValue
                 setDisableReset(true)
                 setDisableInc(false)
                 setError(false)
@@ -115,13 +108,15 @@ const CoolCounter = () => {
     };
 
 
+
+
     return (
         <div className={s.counterBlock}>
             <div className={s.settings}>
                 <Settings />
             </div>
             <div className={s.counter}>
-                <div className={error ? s.error : s.normal}>{errorEnter ? "Incorrect" : startCounter}</div>
+                <div className={error ? s.error : s.normal}>{errorEnter ? "Incorrect" : count}</div>
                 <div className={s.buttons}>
                     <button className={s.myButton} onClick={buttonIncHandler} disabled={disableInc}>INC</button>
                     <button className={s.myButtonRes} onClick={resetButtonHandler} disabled={disableReset}>RESET

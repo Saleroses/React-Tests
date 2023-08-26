@@ -23,7 +23,7 @@ function App() {
     return (
         <div className="App">
             {/*<Exam />*/}
-            {/*<Counter/>*/}
+            <Counter/>
             {/*<Switcher active={switchOn} onChange={setSwitchOn}/>*/}
             {/*<UseState />*/}
             {/*<UseReduce />*/}
