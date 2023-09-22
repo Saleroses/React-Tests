@@ -11,6 +11,7 @@ const CoolCounter = () => {
     const increment = () => {
         const action = incrementAC()
         dispatch(action)
+        console.log(store.getState())
     }
     const reset = (count: number) => {
         const action = resetAC(count)
