@@ -39,7 +39,7 @@ export const Button: FC<{ onPlusCountValueClick: () => void }> = ({onPlusCountVa
 
 export const Checkbox = memo(() => {
     console.log('Checkbox update')
-    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(false); //Перенес переменные в сам компонент
     const handleSetIsChecked = () => setIsChecked(!isChecked);
     return (
         <input type="checkbox" checked={isChecked} onChange={handleSetIsChecked} />
