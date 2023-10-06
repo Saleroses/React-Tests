@@ -13,6 +13,7 @@ import {Example, Example1, HelpToReactMemo} from "./Components/MEMO/memo";
 import Counter from "./Components/Counter/Counter";
 import {Exemple11} from "./Components/UseState/useState";
 import {UseEffect2, Watch} from "./useEffect/useEffect";
+import {AnalogClock} from "./Components/AnalogClock/AnalogClock";
 
 
 
@@ -30,7 +31,7 @@ function App() {
             {/*/!*<Input/>*!/*/}
             {/*/!*<User/>*!/*/}
             {/*<CallBack/>*/}
-            <CoolCounter/>
+            {/*<CoolCounter/>*/}
             {/*<Rating/>*/}
             {/*<ContrInput/>*/}
             {/*<ContrCheckBox/>*/}
@@ -40,6 +41,7 @@ function App() {
             {/*<Exemple11 />*/}
             {/*<UseEffect2 />*/}
             {/*<Watch />*/}
+            <AnalogClock/>
         </div>
     );
 }
