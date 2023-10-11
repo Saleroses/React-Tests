@@ -14,6 +14,7 @@ import Counter from "./Components/Counter/Counter";
 import {Exemple11} from "./Components/UseState/useState";
 import {UseEffect2, Watch} from "./useEffect/useEffect";
 import {AnalogClock} from "./Components/AnalogClock/AnalogClock";
+import {UseEffect} from "./Components/useEffect/useEffect";
 
 
 
@@ -41,7 +42,8 @@ function App() {
             {/*<Exemple11 />*/}
             {/*<UseEffect2 />*/}
             {/*<Watch />*/}
-            <AnalogClock/>
+            {/*<AnalogClock/>*/}
+            <UseEffect/>
         </div>
     );
 }

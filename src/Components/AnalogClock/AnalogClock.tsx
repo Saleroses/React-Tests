@@ -20,7 +20,7 @@ export const AnalogClock = () => {
 
         return () => {clearInterval(intervalId) // убивает тиканье вместе с компонентой
         }
-    }, [])
+    }, [date])
 
     const secondsStyle = {
         transform: `rotate(${seconds * 6}deg)`
