@@ -14,7 +14,7 @@ import Counter from "./Components/Counter/Counter";
 import {Exemple11} from "./Components/UseState/useState";
 import {UseEffect2, Watch} from "./useEffect/useEffect";
 import {AnalogClock} from "./Components/AnalogClock/AnalogClock";
-import {UseEffect} from "./Components/useEffect/useEffect";
+import {KeyTracker, UseEffect} from "./Components/useEffect/useEffect";
 
 
 
@@ -43,7 +43,8 @@ function App() {
             {/*<UseEffect2 />*/}
             {/*<Watch />*/}
             {/*<AnalogClock/>*/}
-            <UseEffect/>
+            {/*<UseEffect/>*/}
+            <KeyTracker/>
         </div>
     );
 }
