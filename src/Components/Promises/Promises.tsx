@@ -26,7 +26,19 @@ export const Promises = () => {
     const [state, setState] = useState<any>(null)
     const [data, setData] = useState('')
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     PromisesAPI.getData()
+    //         .then((res) => {
+    //             setState(res.data)
+    //         })
+    //         .catch((rej) => {
+    //             console.log(rej.toString())
+    //         })
+    //
+    // }, [])
+
+
+    const buttonHandler = () => {
         PromisesAPI.getData()
             .then((res) => {
                 setState(res.data)
@@ -34,11 +46,7 @@ export const Promises = () => {
             .catch((rej) => {
                 console.log(rej.toString())
             })
-
-    }, [])
-
-
-    const buttonHandler = () => {
+        setData(state.activity)
 
     }
 
@@ -46,7 +54,14 @@ export const Promises = () => {
     return (
         <div>
             <button onClick={buttonHandler}>Получить данные</button>
-             <div>Data: {data}</div>
+             <div>Data:
+                 <div>{data}</div>
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div>
+             </div>
         </div>
     );
 };
