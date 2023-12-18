@@ -15,6 +15,7 @@ import {Exemple11} from "./Components/UseState/useState";
 import {UseEffect2, Watch} from "./useEffect/useEffect";
 import {AnalogClock} from "./Components/AnalogClock/AnalogClock";
 import {KeyTracker, UseEffect} from "./Components/useEffect/useEffect";
+import {Promises} from "./Components/Promises/Promises";
 
 
 
@@ -44,7 +45,9 @@ function App() {
             {/*<Watch />*/}
             {/*<AnalogClock/>*/}
             {/*<UseEffect/>*/}
-            <KeyTracker/>
+            {/*<KeyTracker/>*/}
+            <Promises/>
+
         </div>
     );
 }
