@@ -58,7 +58,7 @@ export const Promises = () => {
              <div>Data:
                  <div>activity: {data?.activity}</div>
                  <div>key: {data?.key}</div>
-                 <div>link: {data?.link}</div>
+                 {data?.link ? <div>link: {data?.link}</div> : <div></div>}
                  <div>accessibility: {data?.accessibility}</div>
                  <div>type: {data?.type}</div>
                  <div>participants: {data?.participants}</div>
