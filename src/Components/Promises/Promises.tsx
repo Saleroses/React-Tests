@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import axios, {default as promise} from "axios";
-import {rejects} from "assert";
-import {log} from "util";
-import {string} from "prop-types";
+import axios from "axios";
 
 type ResponseType = {
     data: dataType
