@@ -5,6 +5,10 @@ import {log} from "util";
 import {string} from "prop-types";
 
 type ResponseType = {
+    data: dataType
+}
+
+type dataType = {
     activity: string,
     type: string,
     participants: number,
@@ -24,18 +28,18 @@ export const Promises = () => {
     };
 
     const [state, setState] = useState<any>(null)
-    const [data, setData] = useState('')
+    const [data, setData] = useState<dataType>()
 
-    // useEffect(() => {
-    //     PromisesAPI.getData()
-    //         .then((res) => {
-    //             setState(res.data)
-    //         })
-    //         .catch((rej) => {
-    //             console.log(rej.toString())
-    //         })
-    //
-    // }, [])
+    useEffect(() => {
+        PromisesAPI.getData()
+            .then((res) => {
+                setState(res.data)
+            })
+            .catch((rej) => {
+                console.log(rej.toString())
+            })
+
+    }, [])
 
 
     const buttonHandler = () => {
@@ -46,7 +50,7 @@ export const Promises = () => {
             .catch((rej) => {
                 console.log(rej.toString())
             })
-        setData(state.activity)
+        setData(state)
 
     }
 
@@ -55,12 +59,13 @@ export const Promises = () => {
         <div>
             <button onClick={buttonHandler}>Получить данные</button>
              <div>Data:
-                 <div>{data}</div>
-                 <div></div>
-                 <div></div>
-                 <div></div>
-                 <div></div>
-                 <div></div>
+                 <div>activity: {data?.activity}</div>
+                 <div>key: {data?.key}</div>
+                 <div>link: {data?.link}</div>
+                 <div>accessibility: {data?.accessibility}</div>
+                 <div>type: {data?.type}</div>
+                 <div>participants: {data?.participants}</div>
+                 <div>price: {data?.price}</div>
              </div>
         </div>
     );
