@@ -46,7 +46,7 @@ function App() {
             {/*<AnalogClock/>*/}
             {/*<UseEffect/>*/}
             {/*<KeyTracker/>*/}
-            <Promises/>
+            {/*<Promises/>*/}
 
         </div>
     );
